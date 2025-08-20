@@ -1,0 +1,51 @@
+.menuCon {
+  background-color: #000;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+
+  .buttonBox {
+    justify-self: center;
+    align-self: center;
+    display: flex;
+    width: 600px;
+    justify-content: space-between;
+    color: #fff;
+    font-size: 30px;
+    button {
+      cursor: pointer;
+    }
+  }
+}
+
+.pause {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #998;
+  position: fixed;
+  text-align: center;
+  line-height: 100vh;
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .content {
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    span {
+      line-height: 50px;
+    }
+    button {
+      margin-top: 10px;
+      cursor: pointer;
+      &:hover {
+        background-color: aquamarine;
+      }
+    }
+  }
+}
