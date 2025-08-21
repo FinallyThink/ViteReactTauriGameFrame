@@ -6,6 +6,23 @@ import {
 } from "@tauri-apps/plugin-fs";
 import { appConfigDir } from "@tauri-apps/api/path";
 
+const initFilesName  = ["globalSet.json","test.json"]; // 初始化文件名
+
+export const checkInitFile = async () => {
+  const baseDir = await appConfigDir();
+  for (const fileName of initFilesName) {
+    const filePath = `${baseDir}/${fileName}`;
+    const fileExists = await exists(filePath);
+    if (!fileExists) {
+      // 如果文件不存在，创建一个空文件
+      await writeTextFile(filePath, "{}");
+      console.log(`初始化文件 ${fileName} 已创建`);
+    }
+  } 
+}
+
+
+
 export default class FileSystem {
   constructor() {
     this.baseDir = null;
