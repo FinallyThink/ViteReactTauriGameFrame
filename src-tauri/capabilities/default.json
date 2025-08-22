@@ -8,6 +8,9 @@
   "permissions": [
     "fs:default",
     "core:path:default",
+    "core:window:default", 
+    "core:window:allow-close",
+    "core:window:allow-start-dragging",
     "core:path:allow-resolve-directory",
     {
       "identifier": "fs:allow-app-write-recursive",

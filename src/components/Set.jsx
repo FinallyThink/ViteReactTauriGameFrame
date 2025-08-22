@@ -36,7 +36,7 @@ function SetCom() {
         ...settings
       } 
     });
-    console.log(settings);
+    //console.log(settings);
   }
   // 保存设置（你可以改成保存到 localStorage 或发给后端）
   const handleSave = () => {
