@@ -32,7 +32,7 @@ project-root/
 │   │   ├─ globalState.js        # 全局数据处理
 │   │   ├─ eventBus.js           # 游戏事件中心
 │   │   ├─ keyboard.js           # 键盘事件管理
-│   │   ├─ AudoManager.js              # 音频处理
+│   │   ├─ AudoManager.js        # 音频处理
 │   │   ├─ video.js              # 视频处理
 │   │   ├─ fileSystem.js         # 文件读写（Tauri fs API）
 │   │   ├─ router.js             # 路由封装
