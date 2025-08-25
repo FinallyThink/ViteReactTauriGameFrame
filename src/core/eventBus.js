@@ -1,5 +1,4 @@
 //eventBus.js
-// eventBus.js
 class EventBus {
   constructor() {
     this.events = new Map(); // 存储事件 => 回调数组
