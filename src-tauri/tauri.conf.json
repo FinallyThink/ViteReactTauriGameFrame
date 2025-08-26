@@ -1,35 +1,38 @@
 {
-  "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
-  "productName": "project_1",
+  "$schema": "https://schema.tauri.app/config/2.0.0-rc",
+  "productName": "atest",
   "version": "0.1.0",
-  "identifier": "qkProject_1",
+  "identifier":  "qkProject_1",
   "build": {
     "frontendDist": "../dist",
-    "devUrl": "http://localhost:5174/",
-    "beforeDevCommand": "npm run dev",
-    "beforeBuildCommand": "npm run build"
+    "devUrl": "http://localhost:5173",
+    "beforeDevCommand": "yarn dev",
+    "beforeBuildCommand": "yarn build"
   },
   "app": {
     "windows": [
       {
-        "title": "game",
+        "title": "atest",
         "width": 800,
         "height": 600,
-        "resizable": true
+        "resizable": true,
+        "fullscreen": false,
+        "devtools": true
       }
     ],
     "security": {
       "csp": null
     }
   },
-  "plugins": {
-    "fs": {
-      "requireLiteralLeadingDot": false
-    }
-  },
   "bundle": {
     "active": true,
     "targets": "all",
-    "icon": ["icons/icon.ico"]
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ]
   }
 }

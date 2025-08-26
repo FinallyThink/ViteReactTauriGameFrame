@@ -48,9 +48,9 @@ export default class FileSystem {
     const filePath = `${this.baseDir}/${file}`;
     try {
       await writeTextFile(filePath, data);
-      console.log("保存成功！");
+     // console.log("保存成功！");
     } catch (e) {
-      console.error("保存失败", e);
+     // console.error("保存失败", e);
     }
   }
 

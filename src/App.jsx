@@ -3,6 +3,7 @@ import { RouterProvider } from "react-router-dom";
 import { router } from "./core/router.jsx";
 import { checkInitFile } from "./core/fileSystem.js";
 import audioManager from "./core/AudioManager.js";
+import "./global.less"; // 全局样式
 export default function App() {
   useEffect(() => {
     // 禁止右键菜单

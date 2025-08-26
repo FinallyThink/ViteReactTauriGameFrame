@@ -1,10 +1,11 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, use } from "react";
 import GloData from "./core/globalState";
 import "./GamePage.less";
-import KeyManager from "./core/Keyboard";
+import { useNavigate } from "react-router-dom";
 
 function GamePage() {
   const canvasRef = useRef(null);
+  const navigate = useNavigate();
   const [windowSize, setWindowSize] = useState({
     width: window.innerWidth,
     height: window.innerHeight,
@@ -40,9 +41,7 @@ function GamePage() {
       ctx.clearRect(0, 0, windowSize.width, windowSize.height);
       ctx.font = "20px Arial";
       ctx.fillStyle = "black";
-      ctx.fillText(`运行时间: ${GloData.formatRunTime()}`, 20, 30);
-      ctx.fillStyle = "blue";
-      ctx.fillText(`运行时间2: ${GloData.formatRunTime()}`, 60, 100);
+      ctx.fillText(`运2时间: ${GloData.formatRunTime()}`, 20, 30);
     }, GloData.rate); // 每秒更新一次
   };
   //停止Game
@@ -53,8 +52,15 @@ function GamePage() {
     }
   };
 
+  const Exit = () => {  
+    navigate(-1);
+  }
+
   return (
     <div>
+      <div className="gameUI">
+        <button onClick={Exit}>exit</button>
+      </div>
       <canvas
       className="game-canvas"
         ref={canvasRef}
