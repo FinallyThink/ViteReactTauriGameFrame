@@ -1,22 +1,29 @@
 import { useEffect } from "react";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./core/router.jsx";
-import { checkInitFile } from "./core/fileSystem.js";
+import { ensureInitFiles } from "./core/fileSystem.js";
 import audioManager from "./core/AudioManager.js";
-import "./global.less"; // 全局样式
+import "./global.less";
+
 export default function App() {
   useEffect(() => {
-    // 禁止右键菜单
     const blockContextMenu = (e) => e.preventDefault();
     document.addEventListener("contextmenu", blockContextMenu);
-    return () => {
-      document.removeEventListener("contextmenu", blockContextMenu);
-    };
+    return () => document.removeEventListener("contextmenu", blockContextMenu);
   }, []);
+
   useEffect(() => {
-    // 初始化文件系统
-    checkInitFile();
-    audioManager.initSet()
+    let canceled = false;
+
+    (async () => {
+      await ensureInitFiles();
+      if (canceled) return;
+      await audioManager.initSet();
+    })();
+
+    return () => {
+      canceled = true;
+    };
   }, []);
 
   return <RouterProvider router={router} />;

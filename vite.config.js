@@ -1,9 +1,11 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 
+// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  optimizeDeps: {
-    include: ["@tauri-apps/api"],
-  },
-});
+    server: {
+    port: 5910,      //  默认端口
+    strictPort: true //  端口被占用就直接报错
+  }
+})
